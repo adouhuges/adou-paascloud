@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    config:
+      fail-fast: true   #当Config Server 连接不上的时直接启动失败,设为false则不失败
+      discovery:
+        serviceId: paascloud-discovery
+        enabled: true
+      label: master
+      profile: ${spring.profiles.active}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@47.101.155.20:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}

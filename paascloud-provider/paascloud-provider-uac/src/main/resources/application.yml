@@ -1,0 +1,16 @@
+server:
+  port: 8000
+
+spring:
+  profiles: #到configServer 配置中心中可以拿到@pom.artifactId@-dev.yml 和 application-dev.yml 文件
+    active: dev
+  application:
+    name: paascloud-provider-uac
+    #name: '@pom.artifactId@'
+  datasource:
+    username: root
+    password: 'xDlink..123'
+management: #actuator 监控窗口,不需要安全认证
+  port: 9001
+  security:
+    enabled:false

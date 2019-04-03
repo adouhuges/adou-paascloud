@@ -1,0 +1,22 @@
+server:
+  port: 8762
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: paascloud-discovery
+  rabbitmq:
+    host: 47.101.155.20
+    port: 5672 #服务器要开启该端口才行,日了狗了
+    username: adouhu
+    password: adouhu
+  #boot:
+    #admin:
+      #username: admin
+      #password: admin
+
+info:
+  软件著作权: paascloud快速搭建企业级分布式微服务平台
+  著作登记号: 2018SR320076
+  关于我们: http://paascloud.net

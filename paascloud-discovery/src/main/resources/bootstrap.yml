@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/adouhuges/paascloud-config-repo.git
+          #uri: https://github.com/adouhuges/configCloud.git
+          username:
+          password:
+          search-paths: /config-repo  #文件夹错了 在微服务里一直获取不到配置中心的数据,难受的一批
+          default-label: master
+          #basedir: /data/config/config-repo  #e盘  更换uri,删除原本的basedir
+          basedir: e:/data/config/paascloud-config-repo  #e盘  更换uri,删除原本的basedir
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka/#加上认证用户名和密码
+      #defaultZone: http://root:root@localhost:8762/eureka/,http://root:root@localhost:8761/eureka/ #加上认证用户名和密码
+    instance:
+      instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}

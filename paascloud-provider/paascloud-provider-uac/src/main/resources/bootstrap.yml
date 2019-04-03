@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        service-id: paascloud-discovery
+        enabled: true
+      label: master
+      profile: dev #${spring.profiles.active}
+      
+#客户端通过以下代码去配置中心获取相应的配置文件, app-dev.yml  git 的master分支上, 本客户端中使用项目名作为name           
+#spring.application.name=app
+# dev根据具体情况来修改
+#spring.cloud.config.profile=dev
+#spring.cloud.config.label=master
+
+
+eureka:
+  client:
+    registerWithEureka: true #这个应用会向注册中心（也是它自己）注册它自己
+    fetchRegistry: true #表示检索其他的服务
+    serviceUrl:
+      #defaultZone: http://root:root@47.101.155.20:8761/eureka/
+      defaultZone: http://root:root@localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
