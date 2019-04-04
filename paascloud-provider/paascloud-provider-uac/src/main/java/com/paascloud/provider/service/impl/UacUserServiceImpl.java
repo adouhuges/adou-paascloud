@@ -508,7 +508,7 @@ public class UacUserServiceImpl extends BaseService<UacUser> implements UacUserS
 	@Override
 	public void register(UserRegisterDto registerDto) {
 		// 校验注册信息
-		validateRegisterInfo(registerDto);
+//		validateRegisterInfo(registerDto);
 		String mobileNo = registerDto.getMobileNo();
 		String email = registerDto.getEmail();
 		Date row = new Date();

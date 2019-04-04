@@ -93,7 +93,7 @@ public class MqProducerStoreAspect {
 		if (type == MqSendTypeEnum.WAIT_CONFIRM) {
 			if (delayLevelEnum != DelayLevelEnum.ZERO) {
 				domain.setDelayLevel(delayLevelEnum.delayLevel());
-			}
+			}	//添加待确认的MQ消息到表pc_mq_message_data中
 			mqMessageService.saveWaitConfirmMessage(domain);
 		}
 		result = joinPoint.proceed();

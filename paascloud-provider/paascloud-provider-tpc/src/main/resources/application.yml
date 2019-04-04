@@ -5,7 +5,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: '@pom.artifactId@'
+    name: paascloud-provider-tpc
   datasource:
     username: root
     password: 'xDlink..123'

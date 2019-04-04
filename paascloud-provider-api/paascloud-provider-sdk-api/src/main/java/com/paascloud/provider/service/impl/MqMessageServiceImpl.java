@@ -62,7 +62,7 @@ public class MqMessageServiceImpl implements MqMessageService {
 	@Value("${spring.application.name}")
 	String applicationName;
 
-	@Override
+	@Override	//将待发送的MQ消息 保存到pc_mq_message_data
 	public void saveMqProducerMessage(MqMessageData mqMessageData) {
 		// 校验消息数据
 		this.checkMessage(mqMessageData);

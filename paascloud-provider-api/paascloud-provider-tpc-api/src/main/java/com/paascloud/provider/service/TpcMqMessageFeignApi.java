@@ -36,7 +36,7 @@ public interface TpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/tpc/saveMessageWaitingConfirm")
+	@PostMapping(value = "/api/tpc/saveMessageWaitingConfirm", consumes = "application/json")
 	Wrapper saveMessageWaitingConfirm(@RequestBody TpcMqMessageDto mqMessageDto);
 
 	/**
@@ -46,7 +46,7 @@ public interface TpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/tpc/confirmAndSendMessage")
+	@PostMapping(value = "/api/tpc/confirmAndSendMessage", consumes = "application/json")
 	Wrapper confirmAndSendMessage(@RequestParam("messageKey") String messageKey);
 
 	/**
@@ -56,7 +56,7 @@ public interface TpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/tpc/saveAndSendMessage")
+	@PostMapping(value = "/api/tpc/saveAndSendMessage", consumes = "application/json")
 	Wrapper saveAndSendMessage(@RequestBody TpcMqMessageDto mqMessageDto);
 
 	/**
@@ -66,7 +66,7 @@ public interface TpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/tpc/directSendMessage")
+	@PostMapping(value = "/api/tpc/directSendMessage",consumes = "application/json")
 	Wrapper directSendMessage(@RequestBody TpcMqMessageDto mqMessageDto);
 
 	/**
@@ -76,7 +76,7 @@ public interface TpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/tpc/deleteMessageByMessageKey")
+	@PostMapping(value = "/api/tpc/deleteMessageByMessageKey", consumes = "application/json")
 	Wrapper deleteMessageByMessageKey(@RequestParam("messageKey") String messageKey);
 
 	/**
@@ -87,7 +87,7 @@ public interface TpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/tpc/confirmReceiveMessage")
+	@PostMapping(value = "/api/tpc/confirmReceiveMessage", consumes = "application/json")
 	Wrapper confirmReceiveMessage(@RequestParam("cid") final String cid, @RequestParam("messageKey") final String messageKey);
 
 	/**
@@ -98,6 +98,6 @@ public interface TpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/tpc/saveAndConfirmFinishMessage")
+	@PostMapping(value = "/api/tpc/saveAndConfirmFinishMessage", consumes = "application/json")
 	Wrapper confirmConsumedMessage(@RequestParam("cid") final String cid, @RequestParam("messageKey") final String messageKey);
 }

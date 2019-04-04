@@ -77,7 +77,7 @@ public class TpcMqMessageServiceImpl extends BaseService<TpcMqMessage> implement
 		TpcMqMessage message = new ModelMapper().map(messageDto, TpcMqMessage.class);
 		message.setMessageStatus(MqSendStatusEnum.WAIT_SEND.sendStatus());
 		message.setUpdateTime(now);
-		message.setCreatedTime(now);
+		message.setCreatedTime(now);//插入表 pc_tpc_mq_message，等待确认
 		tpcMqMessageMapper.insertSelective(message);
 	}
 

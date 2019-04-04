@@ -113,7 +113,8 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 	public void validate(ServletWebRequest request) {
 
 		ValidateCodeType codeType = getValidateCodeType();
-		this.check(request);
+		//去除验证码比对校验
+//		this.check(request);
 		validateCodeRepository.remove(request, codeType);
 
 	}

@@ -184,7 +184,7 @@ public class AuthRestController extends BaseController {
 	 */
 	@PostMapping(value = "/register")
 	@ApiOperation(httpMethod = "POST", value = "注册用户")
-	public Wrapper registerUser(UserRegisterDto user) {
+	public Wrapper registerUser(@RequestBody UserRegisterDto user) {
 		uacUserService.register(user);
 		return WrapMapper.ok();
 	}

@@ -43,6 +43,7 @@
   <sql id="Blob_Column_List">
     message_body
   </sql>
+
   <delete id="batchDeleteByIdList">
     delete from pc_mq_message_data
     where id IN
@@ -50,6 +51,7 @@
       #{item}
     </foreach>
   </delete>
+
   <select id="getIdListBefore7Day" resultType="java.lang.Long">
     SELECT id
     FROM
@@ -61,6 +63,7 @@
     ORDER BY id
     LIMIT ${currentPage}, ${pageSize}
   </select>
+
   <select id="getBefore7DayTotalCount" resultType="java.lang.Integer">
     SELECT count(0)
     FROM
@@ -77,6 +80,7 @@
       #{item}
     </foreach>
   </select>
+
   <select id="queryMessageListWithPage" resultType="com.paascloud.base.dto.MqMessageVo">
     SELECT
     <include refid="Base_Column_List">

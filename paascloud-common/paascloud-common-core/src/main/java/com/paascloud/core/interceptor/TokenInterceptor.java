@@ -96,6 +96,12 @@ public class TokenInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 		String uri = request.getRequestURI();
 		log.info("<== preHandle - 权限拦截器.  url={}", uri);
+		//调试 不拦截， 全部放行
+		Boolean debugFlag=true;
+		if(debugFlag) {
+			return debugFlag;
+		}
+
 		if (uri.contains(AUTH_PATH1) || uri.contains(AUTH_PATH2) || uri.contains(AUTH_PATH3) || uri.contains(AUTH_PATH4)) {
 			log.info("<== preHandle - 配置URL不走认证.  url={}", uri);
 			return true;

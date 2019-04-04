@@ -10,7 +10,7 @@ spring:
           search-paths: /config-repo  #文件夹错了 在微服务里一直获取不到配置中心的数据,难受的一批
           default-label: master
           #basedir: /data/config/config-repo  #e盘  更换uri,删除原本的basedir
-          basedir: e:/data/config/paascloud-config-repo  #e盘  更换uri,删除原本的basedir
+          basedir: /data/config/paascloud-config-repo  #e盘  更换uri,删除原本的basedir
 
 eureka:
   client:
