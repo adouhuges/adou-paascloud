@@ -10,7 +10,7 @@ spring:
 eureka:
   client:
     serviceUrl: #api网关也作为一个服务注册到sureka-server上
-      defaultZone: http://root:root@47.101.155.20:8761/eureka/
-      #defaultZone: http://root:root@localhost:8761/eureka/
+      #defaultZone: http://root:root@47.101.155.20:8761/eureka/
+      defaultZone: http://root:root@localhost:8761/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
