@@ -96,7 +96,7 @@ public class MqProducerStoreAspect {
 			}	//添加待确认的MQ消息到表pc_mq_message_data中
 			mqMessageService.saveWaitConfirmMessage(domain);
 		}
-		result = joinPoint.proceed();
+		result = joinPoint.proceed();	//环绕通知 执行目标方法，然后在接着执行。
 		if (type == MqSendTypeEnum.SAVE_AND_SEND) {
 			mqMessageService.saveAndSendMessage(domain);
 		} else if (type == MqSendTypeEnum.DIRECT_SEND) {

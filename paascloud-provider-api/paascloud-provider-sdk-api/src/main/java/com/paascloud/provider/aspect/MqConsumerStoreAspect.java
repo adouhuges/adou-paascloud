@@ -92,7 +92,7 @@ public class MqConsumerStoreAspect {
 
 		MqMessageData dto = this.getTpcMqMessageDto(messageExtList.get(0));
 		final String messageKey = dto.getMessageKey();
-		if (isStorePreStatus) {
+		if (isStorePreStatus) {  //将消息存储到 pc_mq_message_data ,并且tpc中pc_tpc_mq_confirm中记录更新为已发送20。
 			mqMessageService.confirmReceiveMessage(consumerGroup, dto);
 		}
 		String methodName = joinPoint.getSignature().getName();

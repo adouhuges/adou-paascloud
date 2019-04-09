@@ -36,6 +36,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
 				.and()
 				.authorizeRequests().antMatchers("/druid/**", "/pay/alipayCallback", "/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs", "/api/applications").permitAll()
-				.anyRequest().authenticated();
+				.anyRequest().permitAll();		//全部允许
+//				.anyRequest().authenticated();
 	}
 }

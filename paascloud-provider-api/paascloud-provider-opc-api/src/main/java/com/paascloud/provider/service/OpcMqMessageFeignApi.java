@@ -41,7 +41,7 @@ public interface OpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/opc/message/queryMessageKeyList")
+	@PostMapping(value = "/api/opc/message/queryMessageKeyList", consumes = "application/json")
 	Wrapper<List<String>> queryMessageKeyList(@RequestParam("messageKeyList") List<String> messageKeyList);
 
 	/**
@@ -51,6 +51,6 @@ public interface OpcMqMessageFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/opc/message/queryMessageListWithPage")
+	@PostMapping(value = "/api/opc/message/queryMessageListWithPage", consumes = "application/json")
 	Wrapper<PageInfo<MqMessageVo>> queryMessageListWithPage(@RequestBody MessageQueryDto messageQueryDto);
 }

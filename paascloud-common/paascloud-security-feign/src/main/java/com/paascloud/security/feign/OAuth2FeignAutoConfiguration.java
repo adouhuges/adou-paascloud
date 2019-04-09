@@ -13,6 +13,7 @@ package com.paascloud.security.feign;
 
 import feign.Logger;
 import feign.RequestInterceptor;
+import feign.Retryer;
 import feign.codec.ErrorDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,6 +26,8 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 /**
  * The class O auth 2 feign auto configuration.
  *
@@ -35,6 +38,12 @@ import org.springframework.security.oauth2.common.AuthenticationScheme;
 public class OAuth2FeignAutoConfiguration {
 
 	private final Oauth2ClientProperties oauth2ClientProperties;
+
+
+	@Bean
+	public Retryer feignRetryer() {
+		return new Retryer.Default(600, SECONDS.toMillis(6000), 1);
+	}
 
 	/**
 	 * Instantiates a new O auth 2 feign auto configuration.

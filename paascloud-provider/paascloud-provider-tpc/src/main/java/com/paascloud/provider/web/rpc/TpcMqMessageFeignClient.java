@@ -89,7 +89,7 @@ public class TpcMqMessageFeignClient extends BaseController implements TpcMqMess
 	@ApiOperation(httpMethod = "POST", value = "确认消费消息")
 	public Wrapper confirmConsumedMessage(@RequestParam("cid") final String cid, @RequestParam("messageKey") final String messageKey) {
 		logger.info("确认完成消费消息. cid={}, messageKey={}", cid, messageKey);
-		tpcMqMessageService.confirmConsumedMessage(cid, messageKey);
+		tpcMqMessageService.confirmConsumedMessage(cid, messageKey);//将消息置为已消费 pc_tpc_mq_message
 		return WrapMapper.ok();
 	}
 }

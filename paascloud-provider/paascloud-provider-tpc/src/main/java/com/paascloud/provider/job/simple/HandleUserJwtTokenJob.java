@@ -25,7 +25,8 @@ import javax.annotation.Resource;
  * @author paascloud.net @gmail.com
  */
 @Slf4j
-@ElasticJobConfig(cron = "0 0/30 * * * ?")
+@ElasticJobConfig(cron = "0 0 */3 * * ?")
+//@ElasticJobConfig(cron = "0 0/30 * * * ?")
 public class HandleUserJwtTokenJob implements SimpleJob {
 	@Resource
 	private UacRpcService uacRpcService;

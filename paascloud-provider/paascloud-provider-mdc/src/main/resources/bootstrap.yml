@@ -15,7 +15,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://root:root@47.101.155.20:8761/eureka/
-#      defaultZone: http://root:root@47.101.155.20:8761/eureka/,http://root:root@47.101.155.20:8762/eureka/
+      #defaultZone: http://root:root@47.101.155.20:8761/eureka/
+     defaultZone: http://root:root@localhost:8761/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}

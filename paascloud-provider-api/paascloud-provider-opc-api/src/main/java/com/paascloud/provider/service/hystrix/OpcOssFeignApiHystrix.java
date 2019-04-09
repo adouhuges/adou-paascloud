@@ -28,21 +28,25 @@ import java.util.List;
 public class OpcOssFeignApiHystrix implements OpcOssFeignApi {
 	@Override
 	public Wrapper<OptUploadFileRespDto> uploadFile(final OptUploadFileReqDto optUploadFileReqDto) {
+		System.out.printf("uploadFile Hystrix");
 		return null;
 	}
 
 	@Override
 	public Wrapper<String> getFileUrl(final OptGetUrlRequest optGetUrlRequest) {
+		System.out.printf("getFileUrl Hystrix");
 		return null;
 	}
 
 	@Override
 	public Wrapper<List<ElementImgUrlDto>> listFileUrl(final OptBatchGetUrlRequest urlRequest) {
+		System.out.printf("listFileUrl Hystrix");
 		return null;
 	}
 
 	@Override
 	public Wrapper<OptUploadFileRespDto> handleFileUpload(final MultipartFile file) {
+		System.out.printf("handleFileUpload Hystrix");
 		return null;
 	}
 

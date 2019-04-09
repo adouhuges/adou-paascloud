@@ -41,7 +41,7 @@ public interface OpcOssFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/opc/oss/uploadFile")
+	@PostMapping(value = "/api/opc/oss/uploadFile", consumes = "application/json")
 	Wrapper<OptUploadFileRespDto> uploadFile(@RequestBody OptUploadFileReqDto optUploadFileReqDto);
 
 	/**
@@ -51,7 +51,7 @@ public interface OpcOssFeignApi {
 	 *
 	 * @return the file url
 	 */
-	@PostMapping(value = "/api/opc/oss/getFileUrl")
+	@PostMapping(value = "/api/opc/oss/getFileUrl", consumes = "application/json")
 	Wrapper<String> getFileUrl(@RequestBody OptGetUrlRequest optGetUrlRequest);
 
 	/**
@@ -61,7 +61,7 @@ public interface OpcOssFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/opc/oss/listFileUrl")
+	@PostMapping(value = "/api/opc/oss/listFileUrl", consumes = "application/json")
 	Wrapper<List<ElementImgUrlDto>> listFileUrl(@RequestBody OptBatchGetUrlRequest urlRequest);
 
 	/**
@@ -71,13 +71,13 @@ public interface OpcOssFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/opc/oss/handleFileUpload")
+	@PostMapping(value = "/api/opc/oss/handleFileUpload", consumes = "application/json")
 	Wrapper<OptUploadFileRespDto> handleFileUpload(@RequestPart(value = "file") MultipartFile file);
 
 	/**
 	 * 删除过期的文件.
 	 */
-	@PostMapping(value = "/api/opc/oss/deleteExpireFile")
+	@PostMapping(value = "/api/opc/oss/deleteExpireFile", consumes = "application/json")
 	void deleteExpireFile();
 
 	/**

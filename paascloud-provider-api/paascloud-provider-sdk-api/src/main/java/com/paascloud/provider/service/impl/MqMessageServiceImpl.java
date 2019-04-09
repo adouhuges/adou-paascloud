@@ -127,15 +127,15 @@ public class MqMessageServiceImpl implements MqMessageService {
 	}
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
+//	@Transactional(rollbackFor = Exception.class)	注销事务
 	public void confirmReceiveMessage(String cid, MqMessageData messageData) {
 		final String messageKey = messageData.getMessageKey();
 		log.info("confirmReceiveMessage - 消费者={}, 确认收到key={}的消息", cid, messageKey);
 		// 先保存消息
 		messageData.setMessageType(MqMessageTypeEnum.CONSUMER_MESSAGE.messageType());
 		messageData.setId(UniqueIdGenerator.generateId());
-		mqMessageDataMapper.insertSelective(messageData);
-
+		mqMessageDataMapper.insertSelective(messageData);	//将记录插入pc_mq_message_data  将消息插入到数据库中
+		// 将pc_tpc_mq_message 中记录更新成已发送。即消费者这边以经接收到
 		Wrapper wrapper = tpcMqMessageFeignApi.confirmReceiveMessage(cid, messageKey);
 		log.info("tpcMqMessageFeignApi.confirmReceiveMessage result={}", wrapper);
 		if (wrapper == null) {
@@ -159,7 +159,7 @@ public class MqMessageServiceImpl implements MqMessageService {
 	}
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
+//	@Transactional(rollbackFor = Exception.class)
 	public void deleteMqMessage(final int shardingTotalCount, final int shardingItem, final String tags) {
 		// 分页参数每页5000条
 		int pageSize = 1000;
@@ -198,7 +198,7 @@ public class MqMessageServiceImpl implements MqMessageService {
 	}
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
+//	@Transactional(rollbackFor = Exception.class)
 	public void saveWaitConfirmMessage(final MqMessageData mqMessageData) {
 		this.saveMqProducerMessage(mqMessageData);
 		// 发送预发送状态的消息给消息中心

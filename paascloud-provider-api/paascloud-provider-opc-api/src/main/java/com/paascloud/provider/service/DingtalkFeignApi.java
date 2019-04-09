@@ -36,7 +36,7 @@ public interface DingtalkFeignApi {
 	 *
 	 * @return the wrapper
 	 */
-	@PostMapping(value = "/api/opc/dingtalk/sendChatRobotMsg")
+	@PostMapping(value = "/api/opc/dingtalk/sendChatRobotMsg", consumes = "application/json")
 	@NoNeedAccessAuthentication
 	Wrapper<Boolean> sendChatRobotMsg(@RequestBody ChatRobotMsgDto uacUserReqDto);
 }

@@ -83,7 +83,7 @@ public class TpcMqMessageServiceImpl extends BaseService<TpcMqMessage> implement
 
 	@Override
 	public void confirmAndSendMessage(String messageKey) {
-		final TpcMqMessage message = tpcMqMessageMapper.getByMessageKey(messageKey);
+		final TpcMqMessage message = tpcMqMessageMapper.getByMessageKey(messageKey);	//从pc_tpc_mq_message中取出消息
 		if (message == null) {
 			throw new TpcBizException(ErrorCodeEnum.TPC10050002);
 		}
@@ -101,7 +101,7 @@ public class TpcMqMessageServiceImpl extends BaseService<TpcMqMessage> implement
 
 	@Override
 	public void saveAndSendMessage(TpcMqMessageDto tpcMqMessageDto) {
-		if (StringUtils.isEmpty(tpcMqMessageDto.getMessageTopic())) {
+ 		if (StringUtils.isEmpty(tpcMqMessageDto.getMessageTopic())) {
 			throw new TpcBizException(ErrorCodeEnum.TPC10050001);
 		}
 
@@ -174,7 +174,7 @@ public class TpcMqMessageServiceImpl extends BaseService<TpcMqMessage> implement
 		// 2. 校验messageKey
 		// 3. 校验cid 和 messageKey
 		Long confirmId = tpcMqConfirmMapper.getIdMqConfirm(cid, messageKey);
-		// 3. 更新消费信息的状态
+		// 3. 更新消费信息的状态  pc_tpc_mq_message 状态为已发送
 		tpcMqConfirmMapper.confirmReceiveMessage(confirmId);
 	}
 
@@ -193,7 +193,7 @@ public class TpcMqMessageServiceImpl extends BaseService<TpcMqMessage> implement
 	public void createMqConfirmListByTopic(final String topic, final Long messageId, final String messageKey) {
 		List<TpcMqConfirm> list = Lists.newArrayList();
 		TpcMqConfirm tpcMqConfirm;
-		List<String> consumerGroupList = tpcMqConsumerService.listConsumerGroupByTopic(topic);
+		List<String> consumerGroupList = tpcMqConsumerService.listConsumerGroupByTopic(topic);	//获取该消息的订阅者 不能为空
 		if (PublicUtil.isEmpty(consumerGroupList)) {
 			throw new TpcBizException(ErrorCodeEnum.TPC100500010, topic);
 		}

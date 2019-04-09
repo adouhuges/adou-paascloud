@@ -30,7 +30,7 @@ import java.util.List;
  * @author paascloud.net @gmail.com
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
+//@Transactional(rollbackFor = Exception.class)
 public class TpcMqConsumerServiceImpl extends BaseService<TpcMqConsumer> implements TpcMqConsumerService {
 	@Resource
 	private TpcMqConsumerMapper tpcMqConsumerMapper;

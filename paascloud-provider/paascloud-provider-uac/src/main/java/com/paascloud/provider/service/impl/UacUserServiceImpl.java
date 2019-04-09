@@ -58,7 +58,7 @@ import java.util.concurrent.TimeUnit;
  * @author paascloud.net@gmail.com
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
+//@Transactional(rollbackFor = Exception.class)
 public class UacUserServiceImpl extends BaseService<UacUser> implements UacUserService {
 	@Resource
 	private UacUserMapper uacUserMapper;

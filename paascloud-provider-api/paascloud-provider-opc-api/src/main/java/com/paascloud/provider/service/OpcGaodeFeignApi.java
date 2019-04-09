@@ -34,6 +34,6 @@ public interface OpcGaodeFeignApi {
 	 *
 	 * @return the location by ip addr
 	 */
-	@PostMapping(value = "/api/auth/getLocationByIpAddr")
+	@PostMapping(value = "/api/auth/getLocationByIpAddr", consumes = "application/json")
 	Wrapper<GaodeLocation> getLocationByIpAddr(@RequestParam("ipAddr") String ipAddr);
 }

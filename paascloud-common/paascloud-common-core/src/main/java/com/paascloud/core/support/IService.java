@@ -84,7 +84,7 @@ public interface IService<T> {
 	 *
 	 * @return the int
 	 */
-	@Transactional(rollbackFor = Exception.class)
+//	@Transactional(rollbackFor = Exception.class)
 	int batchSave(List<T> list);
 
 	/**
@@ -112,7 +112,7 @@ public interface IService<T> {
 	 *
 	 * @return the int
 	 */
-	@Transactional(rollbackFor = Exception.class)
+//	@Transactional(rollbackFor = Exception.class)
 	int batchDelete(List<T> list);
 
 	/**
