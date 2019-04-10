@@ -1,8 +1,9 @@
 package com.paascloud.provider.security;
 
+import com.paascloud.core.adou.core.SecurityUser;
 import com.paascloud.provider.model.domain.UacUser;
 import com.paascloud.provider.service.UacUserService;
-import com.paascloud.security.core.SecurityUser;
+
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -102,11 +102,10 @@
     </dependency>
 	
 	<!-- 通过OAuth2实现认证 -->
-    <dependency>
+   <!-- <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-oauth2</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.social</groupId>
       <artifactId>spring-social-config</artifactId>
@@ -122,27 +121,32 @@
     <dependency>
       <groupId>org.springframework.social</groupId>
       <artifactId>spring-social-web</artifactId>
-    </dependency>
+    </dependency>-->
     
     <dependency>
       <groupId>com.liuzm.paascloud.common</groupId>
       <artifactId>paascloud-common-base</artifactId>
     </dependency>
-    <dependency>
+   <!-- <dependency>
+      <groupId>com.liuzm.paascloud.common</groupId>
+      <artifactId>paascloud-security-core</artifactId>
+    </dependency>-->
+   <!-- <dependency>
       <groupId>com.liuzm.paascloud.common</groupId>
       <artifactId>paascloud-security-app</artifactId>
-    </dependency>
+    </dependency>-->
 
-    <!--TODO -->
+
+    <!--热部署，更改代码不需要重启项目，就可以实现class文件的加载 -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
-      <optional>true</optional> <!-- 表示依赖不会传递 -->
+      <version>1.5.13.RELEASE</version>
     </dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>springloaded</artifactId>
-	</dependency>
+    <!--	<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>springloaded</artifactId>
+        </dependency>-->
 	
   </dependencies>
 </project>

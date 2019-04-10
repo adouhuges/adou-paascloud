@@ -56,7 +56,7 @@ public class UacUserPasswordController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "用户修改密码")
 	public Wrapper<Integer> modifyUserPwd(@ApiParam(name = "userModifyPwdDto", value = "用户修改密码Dto") @RequestBody UserModifyPwdDto userModifyPwdDto) {
 		logger.info("==》vue用户修改密码, userModifyPwdDto={}", userModifyPwdDto);
-
+		System.out.printf("modifyUserPwd");
 		logger.info("旧密码 oldPassword = {}", userModifyPwdDto.getOldPassword());
 		logger.info("新密码 newPassword = {}", userModifyPwdDto.getNewPassword());
 		logger.info("登录名 loginName = {}", userModifyPwdDto.getLoginName());

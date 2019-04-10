@@ -11,8 +11,8 @@
 
 package com.paascloud;
 
+import com.paascloud.core.adou.core.SmsCodeSender;
 import com.paascloud.provider.service.impl.PcSmsCodeSender;
-import com.paascloud.security.core.validate.code.sms.SmsCodeSender;
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

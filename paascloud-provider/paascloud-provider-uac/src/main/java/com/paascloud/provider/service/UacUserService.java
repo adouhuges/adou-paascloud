@@ -13,13 +13,14 @@ package com.paascloud.provider.service;
 
 import com.github.pagehelper.PageInfo;
 import com.paascloud.base.dto.LoginAuthDto;
+import com.paascloud.core.adou.core.SecurityUser;
 import com.paascloud.core.support.IService;
 import com.paascloud.provider.model.domain.UacLog;
 import com.paascloud.provider.model.domain.UacUser;
 import com.paascloud.provider.model.dto.menu.UserMenuDto;
 import com.paascloud.provider.model.dto.user.*;
 import com.paascloud.provider.model.vo.UserBindRoleVo;
-import com.paascloud.security.core.SecurityUser;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 

@@ -15,7 +15,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://root:root@localhost:8761/eureka/#加上认证用户名和密码
+      defaultZone: http://adouhu:adouhu@localhost:8761/eureka/#加上认证用户名和密码
       #defaultZone: http://root:root@localhost:8762/eureka/,http://root:root@localhost:8761/eureka/ #加上认证用户名和密码
     instance:
       instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}

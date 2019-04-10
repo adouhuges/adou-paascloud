@@ -450,6 +450,13 @@
         <artifactId>logstash-logback-encoder</artifactId>
         <version>4.6</version>
       </dependency>
+
+      <!-- 热加载，修改代码不需要重启项目，就可以实现class替换-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 

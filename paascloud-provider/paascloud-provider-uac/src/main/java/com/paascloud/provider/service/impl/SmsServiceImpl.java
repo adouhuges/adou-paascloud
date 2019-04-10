@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.paascloud.PubUtils;
 import com.paascloud.RedisKeyUtil;
 import com.paascloud.base.constant.AliyunSmsConstants;
+import com.paascloud.core.adou.core.CookieUtil;
 import com.paascloud.core.generator.UniqueIdGenerator;
 import com.paascloud.provider.manager.UserManager;
 import com.paascloud.provider.model.domain.MqMessageData;
@@ -12,7 +13,7 @@ import com.paascloud.provider.model.dto.sms.SmsMessage;
 import com.paascloud.provider.mq.producer.SmsProducer;
 import com.paascloud.provider.service.SmsService;
 import com.paascloud.provider.service.UacUserService;
-import com.paascloud.security.core.validate.code.CookieUtil;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;

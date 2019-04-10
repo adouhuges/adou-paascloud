@@ -29,14 +29,14 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
         <!-- 添加注册中心权限依赖  -->
-       <!--  <dependency>
+       <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
-        </dependency> -->
+        </dependency>
     </dependencies>
     <build>
         <finalName>${artifactId}</finalName>

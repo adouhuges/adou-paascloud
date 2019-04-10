@@ -1,9 +1,5 @@
 package com.paascloud.provider.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.arronlong.httpclientutil.HttpClientUtil;
-import com.arronlong.httpclientutil.common.HttpConfig;
 import com.arronlong.httpclientutil.common.HttpHeader;
 import com.arronlong.httpclientutil.exception.HttpProcessException;
 import com.github.pagehelper.PageHelper;
@@ -13,6 +9,8 @@ import com.paascloud.PublicUtil;
 import com.paascloud.RedisKeyUtil;
 import com.paascloud.base.dto.LoginAuthDto;
 import com.paascloud.base.dto.UserTokenDto;
+import com.paascloud.core.adou.properties.OAuth2ClientProperties;
+import com.paascloud.core.config.SecurityProperties;
 import com.paascloud.core.support.BaseService;
 import com.paascloud.core.utils.RequestUtil;
 import com.paascloud.provider.mapper.UacUserTokenMapper;
@@ -23,8 +21,6 @@ import com.paascloud.provider.model.enums.UacUserTokenStatusEnum;
 import com.paascloud.provider.service.OpcRpcService;
 import com.paascloud.provider.service.UacUserService;
 import com.paascloud.provider.service.UacUserTokenService;
-import com.paascloud.security.core.properties.OAuth2ClientProperties;
-import com.paascloud.security.core.properties.SecurityProperties;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
@@ -56,8 +52,8 @@ public class UacUserTokenServiceImpl extends BaseService<UacUserToken> implement
 	private UacUserTokenMapper uacUserTokenMapper;
 	@Resource
 	private UacUserService uacUserService;
-	@Autowired
-	private SecurityProperties securityProperties;
+
+	private SecurityProperties securityProperties=new SecurityProperties();
 	@Resource
 	private RedisTemplate<String, Object> redisTemplate;
 	@Resource

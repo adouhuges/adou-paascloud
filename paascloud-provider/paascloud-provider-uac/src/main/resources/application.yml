@@ -10,6 +10,7 @@ spring:
   datasource:
     username: root
     password: 'xDlink..123'
+
 management: #actuator 监控窗口,不需要安全认证
   port: 9001
   security:

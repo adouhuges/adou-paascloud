@@ -61,7 +61,7 @@ public class AuthHeaderFilter extends ZuulFilter {
 
 	/**
 	 * Filter order int.
-	 *
+	 * number more small,priority high
 	 * @return the int
 	 */
 	@Override

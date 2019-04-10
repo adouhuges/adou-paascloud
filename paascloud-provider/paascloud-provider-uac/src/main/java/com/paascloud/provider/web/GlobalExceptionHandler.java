@@ -26,10 +26,11 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 全局的的异常拦截器
- *
+ * 未进入controller发生的错误，无法被其捕捉，处理。
  * @author paascloud.net @gmail.com
  */
 @Slf4j
@@ -100,7 +101,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ResponseBody
-	public Wrapper exception(Exception e) {
+	public Wrapper exception(HttpServletRequest request, Exception e) {
 		log.info("保存全局异常信息 ex={}", e.getMessage(), e);
 		taskExecutor.execute(() -> {
 			GlobalExceptionLogDto globalExceptionLogDto = new GlobalExceptionLogDto().getGlobalExceptionLogDto(e, profile, applicationName);

@@ -4,3 +4,9 @@ spring:
     active: peer1
   application:
     name: '@pom.artifactId@'
+security:
+  basic:
+    enabled: true #开启注册中心认证
+  user:
+    name: adouhu #用户名
+    password: adouhu #密码

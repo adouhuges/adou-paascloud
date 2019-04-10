@@ -51,7 +51,7 @@ public class UacUserLoginController extends BaseController {
 	private UacLoginService uacLoginService;
 	@Resource
 	private UacUserTokenService uacUserTokenService;
-	@Resource
+
 	private ClientDetailsService clientDetailsService;
 	private static final String BEARER_TOKEN_TYPE = "Basic ";
 

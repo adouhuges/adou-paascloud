@@ -15,6 +15,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.paascloud.base.dto.LoginAuthDto;
 import com.paascloud.base.enums.ErrorCodeEnum;
+import com.paascloud.core.adou.core.SecurityUser;
 import com.paascloud.core.annotation.LogAnnotation;
 import com.paascloud.core.support.BaseController;
 import com.paascloud.provider.model.domain.UacLog;
@@ -27,7 +28,7 @@ import com.paascloud.provider.model.exceptions.UacBizException;
 import com.paascloud.provider.model.vo.UserBindRoleVo;
 import com.paascloud.provider.security.SecurityUtils;
 import com.paascloud.provider.service.UacUserService;
-import com.paascloud.security.core.SecurityUser;
+
 import com.paascloud.wrapper.WrapMapper;
 import com.paascloud.wrapper.Wrapper;
 import io.swagger.annotations.Api;

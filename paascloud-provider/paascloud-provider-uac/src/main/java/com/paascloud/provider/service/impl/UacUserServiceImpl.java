@@ -11,6 +11,7 @@ import com.paascloud.base.constant.AliyunMqTopicConstants;
 import com.paascloud.base.constant.GlobalConstant;
 import com.paascloud.base.dto.LoginAuthDto;
 import com.paascloud.base.enums.ErrorCodeEnum;
+import com.paascloud.core.adou.core.SecurityUser;
 import com.paascloud.core.enums.LogTypeEnum;
 import com.paascloud.core.support.BaseService;
 import com.paascloud.core.utils.RequestUtil;
@@ -33,7 +34,7 @@ import com.paascloud.provider.model.vo.UserBindRoleVo;
 import com.paascloud.provider.mq.producer.EmailProducer;
 import com.paascloud.provider.service.*;
 import com.paascloud.provider.utils.Md5Util;
-import com.paascloud.security.core.SecurityUser;
+
 import com.xiaoleilu.hutool.date.DateUtil;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.springframework.beans.factory.annotation.Value;
