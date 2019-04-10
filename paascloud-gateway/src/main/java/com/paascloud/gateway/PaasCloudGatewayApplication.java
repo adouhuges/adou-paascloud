@@ -33,7 +33,6 @@ import org.springframework.web.filter.CorsFilter;
 @SpringBootApplication
 @EnableDiscoveryClient //开启Eureka Client
 @EnableZuulProxy	//表示开启Zuul的api网关服务功能
-@EnableOAuth2Sso
 @EnableHystrix
 @EnableSwaggerButler
 public class PaasCloudGatewayApplication {

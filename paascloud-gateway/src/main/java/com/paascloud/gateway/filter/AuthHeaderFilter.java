@@ -87,14 +87,13 @@ public class AuthHeaderFilter extends ZuulFilter {
 	@Override
 	public Object run() {
 		log.info("AuthHeaderFilter - 开始鉴权...");
-		System.out.println("WUXINGHUDAYEHAI AuthHeaderFilter - 开始鉴权...");
-		System.out.println("WUXINGHUDAYEHAI AuthHeaderFilter - 开始鉴权...");
-		System.out.println("WUXINGHUDAYEHAI AuthHeaderFilter - 开始鉴权...");
+		log.info("AuthHeaderFilter - 开始鉴权...");
 		RequestContext requestContext = RequestContext.getCurrentContext(); //过滤器之间  通过该对象进行传输数据
 		try {
 			doSomething(requestContext);
 		} catch (Exception e) {
 			log.error("AuthHeaderFilter - [FAIL] EXCEPTION={}", e.getMessage(), e);
+			requestContext.set("flag",false);
 			throw new BusinessException(ErrorCodeEnum.UAC10011041);
 		}
 		return null;
@@ -103,14 +102,19 @@ public class AuthHeaderFilter extends ZuulFilter {
 	private void doSomething(RequestContext requestContext) throws ZuulException {
 		HttpServletRequest request = requestContext.getRequest();
 		String requestURI = request.getRequestURI();
-		System.out.print(request.getMethod());
+		String requestMethod = request.getMethod();
+		log.info("方法URI："+request.getRequestURI()+"请求方式："+request.getMethod());
+		// 权限白名单
+		if(requestURI.equalsIgnoreCase("/user/modifyUserPwd")){
+			return ;
+		}
 		//请求方式等于OPTIONS 或者包含/auth 等等
-		if (OPTIONS.equalsIgnoreCase(request.getMethod()) || requestURI.contains(AUTH_PATH) || requestURI.contains(LOGOUT_URI) || !requestURI.contains(ALIPAY_CALL_URI)) {
+		if (OPTIONS.equalsIgnoreCase(request.getMethod()) || requestURI.contains(AUTH_PATH) || requestURI.contains(LOGOUT_URI) || requestURI.contains(ALIPAY_CALL_URI)) {
 //		if (OPTIONS.equalsIgnoreCase(request.getMethod()) || requestURI.contains(AUTH_PATH) || requestURI.contains(LOGOUT_URI) || requestURI.contains(ALIPAY_CALL_URI)) {
 			return;
 		}
-		String authHeader = RequestUtil.getAuthHeader(request);
-
+//		String authHeader = RequestUtil.getAuthHeader(request);
+		String authHeader = null;
 		if (PublicUtil.isEmpty(authHeader)) {
 			throw new ZuulException("刷新页面重试", 403, "check token fail");
 		}
