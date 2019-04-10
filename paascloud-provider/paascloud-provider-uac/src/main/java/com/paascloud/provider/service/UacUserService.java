@@ -13,7 +13,6 @@ package com.paascloud.provider.service;
 
 import com.github.pagehelper.PageInfo;
 import com.paascloud.base.dto.LoginAuthDto;
-import com.paascloud.core.adou.core.SecurityUser;
 import com.paascloud.core.support.IService;
 import com.paascloud.provider.model.domain.UacLog;
 import com.paascloud.provider.model.domain.UacUser;
@@ -21,8 +20,8 @@ import com.paascloud.provider.model.dto.menu.UserMenuDto;
 import com.paascloud.provider.model.dto.user.*;
 import com.paascloud.provider.model.vo.UserBindRoleVo;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.oauth2.common.OAuth2AccessToken;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
@@ -295,16 +294,16 @@ public interface UacUserService extends IService<UacUser> {
 	 *
 	 * @return the collection
 	 */
-	Collection<GrantedAuthority> loadUserAuthorities(Long userId);
-
-	/**
-	 * Handler login data.
-	 *
-	 * @param token     the token
-	 * @param principal the principal
-	 * @param request   the request
-	 */
-	void handlerLoginData(OAuth2AccessToken token, final SecurityUser principal, final HttpServletRequest request);
+//	Collection<GrantedAuthority> loadUserAuthorities(Long userId);
+//
+//	/**
+//	 * Handler login data.
+//	 *
+//	 * @param token     the token
+//	 * @param principal the principal
+//	 * @param request   the request
+//	 */
+//	void handlerLoginData(OAuth2AccessToken token, final Object principal, final HttpServletRequest request);
 
 	/**
 	 * Find user info by login name uac user.

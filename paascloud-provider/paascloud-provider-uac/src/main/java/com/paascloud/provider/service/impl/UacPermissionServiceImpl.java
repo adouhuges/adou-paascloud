@@ -1,18 +1,12 @@
 package com.paascloud.provider.service.impl;
 
-import com.google.common.base.Joiner;
-import com.paascloud.base.constant.GlobalConstant;
-import com.paascloud.provider.security.SecurityUtils;
 import com.paascloud.provider.service.UacPermissionService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Set;
 
 /**
  * The class Uac permission service.
@@ -29,7 +23,7 @@ public class UacPermissionServiceImpl implements UacPermissionService {
 //	private ClientDetailsService clientDetailsService;
 
 	@Override
-	public boolean hasPermission(Authentication authentication, HttpServletRequest request) {
+	public boolean hasPermission(Object authentication, HttpServletRequest request) {
 //		String currentLoginName = SecurityUtils.getCurrentLoginName();
 //		Set<String> currentAuthorityUrl = SecurityUtils.getCurrentAuthorityUrl();
 //		String requestURI = request.getRequestURI();

@@ -41,7 +41,7 @@ import java.lang.reflect.Method;
 @Slf4j
 public class TokenInterceptor implements HandlerInterceptor {
 
-	@Value("${paascloud.oauth2.jwtSigningKey}")
+//	@Value("${paascloud.oauth2.jwtSigningKey}")
 	private String jwtSigningKey;
 
 	@Resource

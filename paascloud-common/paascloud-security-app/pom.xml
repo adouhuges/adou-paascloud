@@ -9,10 +9,6 @@
     </parent>
 	
 	<dependencies>
-		<dependency>
-			<groupId>com.liuzm.paascloud.common</groupId>
-			<artifactId>paascloud-security-core</artifactId>
-			<version>${paascloud.security.version}</version>
-		</dependency>
+
 	</dependencies>
 </project>

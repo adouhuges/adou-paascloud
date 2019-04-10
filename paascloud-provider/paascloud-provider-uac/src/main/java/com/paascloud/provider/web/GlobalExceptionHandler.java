@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -82,13 +81,13 @@ public class GlobalExceptionHandler {
 	 *
 	 * @return the wrapper
 	 */
-	@ExceptionHandler(AccessDeniedException.class)
-	@ResponseStatus(HttpStatus.UNAUTHORIZED)
-	@ResponseBody
-	public Wrapper unAuthorizedException(AccessDeniedException e) {
-		log.error("业务异常={}", e.getMessage(), e);
-		return WrapMapper.wrap(ErrorCodeEnum.GL99990401.code(), ErrorCodeEnum.GL99990401.msg());
-	}
+//	@ExceptionHandler(AccessDeniedException.class)
+//	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+//	@ResponseBody
+//	public Wrapper unAuthorizedException(AccessDeniedException e) {
+//		log.error("业务异常={}", e.getMessage(), e);
+//		return WrapMapper.wrap(ErrorCodeEnum.GL99990401.code(), ErrorCodeEnum.GL99990401.msg());
+//	}
 
 
 	/**

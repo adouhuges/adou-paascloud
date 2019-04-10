@@ -15,7 +15,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.paascloud.base.dto.LoginAuthDto;
 import com.paascloud.base.enums.ErrorCodeEnum;
-import com.paascloud.core.adou.core.SecurityUser;
 import com.paascloud.core.annotation.LogAnnotation;
 import com.paascloud.core.support.BaseController;
 import com.paascloud.provider.model.domain.UacLog;
@@ -26,7 +25,6 @@ import com.paascloud.provider.model.dto.user.BindUserRolesDto;
 import com.paascloud.provider.model.dto.user.ModifyUserStatusDto;
 import com.paascloud.provider.model.exceptions.UacBizException;
 import com.paascloud.provider.model.vo.UserBindRoleVo;
-import com.paascloud.provider.security.SecurityUtils;
 import com.paascloud.provider.service.UacUserService;
 
 import com.paascloud.wrapper.WrapMapper;
@@ -247,17 +245,5 @@ public class UacUserMainController extends BaseController {
 		return WrapMapper.ok();
 	}
 
-	/**
-	 * User security user.
-	 *
-	 * @return the security user
-	 */
-	@GetMapping("/user")
-	public SecurityUser user() {
-		String loginName = SecurityUtils.getCurrentLoginName();
-		logger.info("{}", loginName);
-		UacUser user = uacUserService.findByLoginName(loginName);
-		return user == null ? null : new SecurityUser(user.getId(), user.getLoginName(), user.getLoginPwd(), user.getUserName(), user.getGroupId(), user.getGroupName());
-	}
 
 }

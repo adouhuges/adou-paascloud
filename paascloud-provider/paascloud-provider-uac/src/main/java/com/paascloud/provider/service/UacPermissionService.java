@@ -12,7 +12,7 @@
 package com.paascloud.provider.service;
 
 
-import org.springframework.security.core.Authentication;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,5 +31,5 @@ public interface UacPermissionService {
 	 *
 	 * @return the boolean
 	 */
-	boolean hasPermission(Authentication authentication, HttpServletRequest request);
+	boolean hasPermission(Object authentication, HttpServletRequest request);
 }

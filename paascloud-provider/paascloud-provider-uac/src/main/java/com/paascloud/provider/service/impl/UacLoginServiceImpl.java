@@ -20,7 +20,6 @@ import com.paascloud.provider.model.domain.UacUser;
 import com.paascloud.provider.model.dto.user.LoginRespDto;
 import com.paascloud.provider.model.exceptions.UacBizException;
 import com.paascloud.provider.model.vo.MenuVo;
-import com.paascloud.provider.security.SecurityUtils;
 import com.paascloud.provider.service.UacLoginService;
 import com.paascloud.provider.service.UacMenuService;
 import com.paascloud.provider.service.UacUserService;
@@ -51,7 +50,8 @@ public class UacLoginServiceImpl implements UacLoginService {
 	@Override
 	public LoginRespDto loginAfter(Long applicationId) {
 		LoginRespDto loginRespDto = new LoginRespDto();
-		String loginName = SecurityUtils.getCurrentLoginName();
+//		String loginName = SecurityUtils.getCurrentLoginName();
+		String loginName="adouhu";
 		if (StringUtils.isEmpty(loginName)) {
 			log.error("操作超时, 请重新登录 loginName={}", loginName);
 			Preconditions.checkArgument(StringUtils.isNotEmpty(loginName), "操作超时, 请重新登录");

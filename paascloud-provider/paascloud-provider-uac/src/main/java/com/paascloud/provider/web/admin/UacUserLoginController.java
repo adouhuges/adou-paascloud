@@ -27,10 +27,6 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.oauth2.common.exceptions.UnapprovedClientAuthenticationException;
-import org.springframework.security.oauth2.provider.ClientDetails;
-import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -52,7 +48,7 @@ public class UacUserLoginController extends BaseController {
 	@Resource
 	private UacUserTokenService uacUserTokenService;
 
-	private ClientDetailsService clientDetailsService;
+//	private ClientDetailsService clientDetailsService;
 	private static final String BEARER_TOKEN_TYPE = "Basic ";
 
 
@@ -120,18 +116,18 @@ public class UacUserLoginController extends BaseController {
 			int delim = header.indexOf(GlobalConstant.Symbol.MH);
 
 			if (delim == -1) {
-				throw new BadCredentialsException("Invalid basic authentication token");
+//				throw new BadCredentialsException("Invalid basic authentication token");
 			}
 			String clientId=header.substring(0, delim);
 			String clientSecret=header.substring(delim + 1);
 
-			ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
-
-			if (clientDetails == null) {
-				throw new UnapprovedClientAuthenticationException("clientId对应的配置信息不存在:" + clientId);
-			} else if (!StringUtils.equals(clientDetails.getClientSecret(), clientSecret)) {
-				throw new UnapprovedClientAuthenticationException("clientSecret不匹配:" + clientId);
-			}
+//			ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
+//
+//			if (clientDetails == null) {
+//				throw new UnapprovedClientAuthenticationException("clientId对应的配置信息不存在:" + clientId);
+//			} else if (!StringUtils.equals(clientDetails.getClientSecret(), clientSecret)) {
+//				throw new UnapprovedClientAuthenticationException("clientSecret不匹配:" + clientId);
+//			}
 
 			token = uacUserTokenService.refreshToken(accessToken, refreshToken, request);
 		} catch (Exception e) {
